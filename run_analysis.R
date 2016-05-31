@@ -5,7 +5,7 @@
 #From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 #Set working directory for project
-setwd("~/R/Projecten/Coursera/Course3Project")
+#setwd("~/R/Projecten/Coursera/Course3Project")
 
 #Get the data, and unzip
 if(!file.exists("Dataset.zip")) {
