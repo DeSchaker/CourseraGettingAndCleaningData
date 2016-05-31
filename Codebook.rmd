@@ -1,0 +1,80 @@
+---
+title: "Codebook Data cleaning project"
+author: "J.R. Westerink"
+date: "31 mei 2016"
+output: 
+  html_document:
+   keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Project description
+During this project a clean, tidy dataset was created from the following source
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+# Data processing
+runAnalysis.R processes the following files:
+
+* UCI HAR Dataset/activity_labels.txt     
+* UCI HAR Dataset/features.txt           
+* UCI HAR Dataset/test/subject_test.txt   
+* UCI HAR Dataset/test/X_test.txt        
+* UCI HAR Dataset/test/y_test.txt         
+* UCI HAR Dataset/train/subject_train.txt
+* UCI HAR Dataset/train/X_train.txt       
+* UCI HAR Dataset/train/y_train.txt 
+
+# Creating the tidy data
+The tidy data can be created by running runAnalysis.R, which takes care of downloading and processing the raw data.
+
+
+# Description of the values in the tidy dataset
+```{r echo=FALSE, comment=NA, collapse = TRUE}
+tidy <- read.csv("tidy.csv")
+
+cat("Dimensions of the tidy dataset (rows,columns):")
+print(dim(tidy))
+cat("Variables in the tidy dataset:")
+print(names(tidy))
+ ```
+
+
+## activityId
+The activityId is the unique identifier for the activity that took place. Also see activityDescription
+```{r echo=FALSE, comment=NA, collapse = TRUE, results="markup"}
+cat("Values:")
+print(unique(tidy$activityId))
+```
+
+
+## activityDescription
+The activityDescription contains information about the activity that took place.
+```{r echo=FALSE, comment=NA, collapse = TRUE}
+cat("Values:")
+print(levels(tidy$activityDescription))
+```
+
+## subjectId
+The subjectId is the unique identifier for the subject that participated in the experiment.
+```{r echo=FALSE, comment=NA, collapse = TRUE}
+cat("Values:")
+print(unique(tidy$subjectId))
+```
+
+## Sensor
+The sensor variable contains information about the sensor that took the measurement.
+```{r echo=FALSE, comment=NA, collapse = TRUE}
+cat("Values:")
+print(levels(tidy$Sensor))
+```
+
+## Average
+The Average variable contains the average of the measurement per person, activity and sensor.
+The unit of the measures varies depending on the sensor type.
+
+
+
+

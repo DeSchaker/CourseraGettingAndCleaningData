@@ -1,0 +1,20 @@
+---
+title: "Readme"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Project description
+
+This project transform raw data about smartphone usage to a tidy dataset.
+To do this a r-script 'runAnalysis.R' was created which takes the following steps:
+
+1. Download the zip file with the data, if it doesn't exist. Unzip the files in the zip file.
+2. Create a list of needed files and read the needed dataframes from that files into a list of data frames.
+3. Set readable column names
+4. Combine the data frames in the list to a final date frame, which, according to specifications, contains only information about the subject,activity and the mean and standard deviaton values.
+5. Create a tidy dataset with the averages for each variable per activity and subject.
+
