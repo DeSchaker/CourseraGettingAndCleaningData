@@ -76,4 +76,4 @@ tblFinal <- tbl_df(finaldata) %>%
     group_by(activityId,activityDescription, subjectId, Sensor)  %>%
    summarise(Average=mean(Value)) 
 
-write.csv(tblFinal,"tidy.csv",row.names=FALSE)
+write.table(tblFinal,"tidy.txt",row.names=FALSE)
